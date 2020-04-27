@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Gnome Calculator</title>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100vw;
+				height: 100vh;
+				background-image: url('assets/img/bg.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				font-family: ubuntu, monospace;
+				font-size: 12px;
+				color: white;
+			}
+
+			.draggable {
+				display: flex;
+				flex-direction: column;
+				position: absolute;
+				width: 360px;
+				height: 400px;
+				border: 1px solid #1d1d1d;
+				border-radius: 10px 10px 0px 0px;
+				overflow: hidden;
+			}
+
+			.dggb-header {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height: 40px;
+				cursor: move;
+				background-color: #3e3e3e;
+				font-size: 14px;
+				font-weight: bold;
+				text-align: center;
+			}
+
+			.historic {
+				height: 30%;
+				background-color: #353535;
+				border-top: 1px solid #1d1d1d;
+			}
+
+			.input {
+				height: 10%;
+				background-color: #353535;
+				border-top: 1px solid #1d1d1d;
+			}
+
+			.calculator {
+				height: 50%;
+				background-color: #3e3e3e;
+				border-top: 1px solid #1d1d1d;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="draggable" class="draggable">
+			<id id="dggb-header" class="dggb-header">
+				<p>Basic Mode</p>
+			</id>
+			<header class="historic">10 + 10 = 5</header>
+			<section class="input">
+				<form>
+					<input type="text" name="" id="ipt">
+				</form>
+			</section>
+			<section class="calculator">Calculator</section>
+		</div>
+	</body>
+
+	<script>
+
+		// Torna o elemento recebido por parâmetro arrastável
+		dragElement(document.getElementById("draggable"));
+
+		function dragElement(element) {
+			var position1 = 0, position2 = 0, position3 = 0, position4 = 0;
+			if (document.getElementById(element.id + "header")) {
+				// se presente, o cabeçalho é onde você move o DIV
+				document.getElementById(element.id + "header").onmousedown = dragMouseDown;
+			} else {
+				// caso contrário, mova o DIV de qualquer lugar dentro do DIV
+				element.onmousedown = dragMouseDown;
+			}
+
+			function dragMouseDown(e) {
+				e = e || window.event;
+				e.preventDefault();
+				// obtenha a posição do cursor do mouse na inicialização:
+				position3 = e.clientX;
+				position4 = e.clientY;
+				document.onmouseup = closeDragElement;
+				// chame uma função sempre que o cursor se mover:
+				document.onmousemove = elementDrag;
+			}
+
+			function elementDrag(e) {
+				e = e || window.event;
+				e.preventDefault();
+				// calcule a nova posição do cursor
+				position1 = position3 - e.clientX;
+				position2 = position4 - e.clientY;
+				position3 = e.clientX;
+				position4 = e.clientY;
+				// defina a nova posição do elemento
+				element.style.top = (element.offsetTop - position2) + "px";
+				element.style.left = (element.offsetLeft - position1) + "px";
+			}
+
+			function closeDragElement() {
+				// pare de se mover quando o botão do mouse for liberado
+				document.onmouseup = null;
+				document.onmousemove = null;
+			}
+		}
+	</script>
+
+</html>
