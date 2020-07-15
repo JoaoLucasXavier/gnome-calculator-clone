@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: ubuntu, monospace;
+  font-size: 12px;
+  color: white;
+}
+
+.draggable {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 360px;
+  height: 400px;
+  border: 1px solid #1d1d1d;
+  border-radius: 10px 10px 0px 0px;
+  overflow: hidden;
+}
+
+.dggb-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40px;
+  cursor: move;
+  background-color: #3e3e3e;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.historic {
+  height: 30%;
+  background-color: #353535;
+  border-top: 1px solid #1d1d1d;
+}
+
+.visor {
+  height: 60px;
+  background-color: #353535;
+  border-top: 1px solid #1d1d1d;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.calculator {
+  height: 50%;
+  background-color: #3e3e3e;
+  border-top: 1px solid #1d1d1d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.calculator .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: space-around;
+}
+
+.calculator .keys {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 30px;
+  border: 1px solid #282828;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.calculator .equal {
+  flex-basis: 111px;
+}
+
+.calculator .keys:active {
+  background-color: #282828;
+}
