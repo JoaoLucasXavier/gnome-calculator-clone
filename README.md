@@ -1,6 +1,6 @@
 # Gnome Calculator Clone
 
-Projeto do clone da calculadora do Gnome Shell que desenvolvi em **html**, **css** e **Javascript**.
+Projeto clone da calculadora do Gnome Shell que desenvolvi em **html**, **css** e **Javascript**.
 
  
 
@@ -8,5 +8,5 @@ Projeto do clone da calculadora do Gnome Shell que desenvolvi em **html**, **css
 
 
 
-![](/home/lucasxavier/Desktop/gnome-calculator-clone/assets/img/calc.gif)
+![](https://github.com/JoaoLucasXavier/gnome-calculator-clone/blob/master/assets/img/calc.gif)
 
